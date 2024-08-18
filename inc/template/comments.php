@@ -55,6 +55,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             </div>
         </div>
         <?php endif; ?>
+
+        
         <?php if ($this->allow('comment')): ?>
         <div id="<?php $this->respondId(); ?>" class="respond">
             <div class="cancel-comment-reply">
@@ -65,8 +67,6 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                     <div class="mdui-m-r-2"><i class="mdui-icon material-icons">comment</i></div>
                     <div class="mdui-card-primary-title mdui-text-truncate"><strong>评论</strong></div>
                 </div>
-
-
                 <h3 id="response"><?php _e('添加新评论'); ?></h3>
                 <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
                     <?php if ($this->user->hasLogin()): ?>

@@ -9,7 +9,6 @@ function themeConfig($form)
 <link href="<?php echo THEME_URL ?>/assets/admin/options.css?v=<?php echo get_ver(); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo THEME_URL ?>/assets/css/mdui.min.css?v=<?php echo get_ver(); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo THEME_URL ?>/assets/css/mdx-icons.css?v=<?php echo get_ver(); ?>" rel="stylesheet" type="text/css" />
-<script src="<?php echo THEME_URL ?>/assets/js/miomoe-v2.js?v=<?php echo get_ver(); ?>"></script>
 <script src="<?php echo THEME_URL ?>/assets/js/mdui.min.js?v=<?php echo get_ver(); ?>"></script>
 <script>
 setTimeout(function() {
@@ -21,17 +20,20 @@ setTimeout(function() {
 </script>
 <div class="mdui-m-y-2 mdui-card mdui-hoverable" style="border-radius: 8px;">
 <div class="mdui-card-media mdui-card-content">
-    <div class="mdui-card-primary-title mdui-text-truncate">感谢使用MioMoeV2！<small>当前版本：<?php echo get_ver(); ?></small></div>
+    <div class="mdui-card-primary-title mdui-text-truncate">
+        感谢使用MioMoeV2！
+        <br><small>当前版本：<?php echo get_ver(); ?>丨最新版本：<?php echo get_api_newVer(); ?></small>
+    </div>
 </div>
 <div class="mdui-divider"></div>
 <div class="mdui-tab mdui-tab-full-width" mdui-tab>
-    <a href="#使用说明" class="mdui-ripple">
-        <i class="mdui-icon material-icons">info</i>
-        <label>使用说明</label>
-    </a>
     <a href="#主题设置" class="mdui-ripple">
         <i class="mdui-icon material-icons">settings</i>
         <label>主题设置</label>
+    </a>
+    <a href="#使用说明" class="mdui-ripple">
+        <i class="mdui-icon material-icons">info</i>
+        <label>使用说明</label>
     </a>
 </div>
 <div class="mdui-divider"></div>
@@ -42,8 +44,21 @@ setTimeout(function() {
     <p>最新版本为：<?php echo get_api_newVer(); ?></p>
 </div>
 </div>
-<div class="mdui-card-content" id="主题设置">
+<div class="mdui-card-content" id="主题设置" style="padding-left:4%;padding-right:4%;">
 <?php 
+    // CDN
+    $assetsCdn = new Typecho_Widget_Helper_Form_Element_Select(  
+        'assetsCdn',  
+        array(        
+            'default' => _t('本地'), 
+            'https://ss.bscstorage.com/wpteam-shushuicu/'=> _t('白山云'), 
+        ),  
+        'default',          
+        _t('CDN'),   
+        _t('请选择静态资源CDN加速节点<br><font color="red">推荐白山云</font>，如果切换CDN后有问题请切换为本地。') 
+    );   
+    $form->addInput($assetsCdn);
+
     // 首页
     $indexStyle = new Typecho_Widget_Helper_Form_Element_Select(  
         'indexStyle',  
@@ -75,7 +90,7 @@ setTimeout(function() {
     $subTitle = new Typecho_Widget_Helper_Form_Element_Text(
         'subTitle', 
         NULL, 
-        '由 MioMoe 主题强力驱动', 
+        '由 MioMoeV2 主题强力驱动', 
         _t('副标题'), 
         _t('输入一段描述，将会显示在网站首页 title 后方，留空不显示。')
     );
@@ -175,7 +190,5 @@ setTimeout(function() {
         _t('位于 body 标签之前(底部)，<font color="red">需要在 script 标签内填写JavaScript代码。</font>')
     );
     $form->addInput($footerstyleCode);
-?>
-<?php 
 }
 ?>

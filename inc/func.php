@@ -25,6 +25,7 @@
  *  
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; 
+
 $index = Helper::options()->siteUrl; 
 $admin = Helper::options()->adminUrl; 
 
@@ -210,7 +211,15 @@ function get_themeCopyright() {
         Theme · <a href="https://blog.miomoe.cn/" target="_blank" rel="external nofollow noopener">MioMoe V2</a>
     ';   
 }
-
+// 获取assetsUrl
+function get_assetUrl($path) {
+    $cdnUrl = Typecho_Widget::widget('Widget_Options')->assetsCdn;
+    if ($cdnUrl === 'default') {
+        return Typecho_Widget::widget('Widget_Options')->themeUrl($path);
+    } else {
+        return $cdnUrl . $path;
+    }
+}
 /**
  * // 后台说明
  * function get_adminInfo() {

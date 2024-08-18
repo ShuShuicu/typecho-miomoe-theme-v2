@@ -24,6 +24,7 @@ function add_custom_message_to_write_page() {
 Typecho_Plugin::factory('admin/footer.php')->end = 'add_custom_message_to_write_page';
 
 // 短代码解析函数
+// 按钮
 function parse_button_shortcode($content) {
     $pattern = '/\[button link="(.*?)"\](.*?)\[\/button\]/i';
     $callback = function ($matches) {
@@ -33,7 +34,7 @@ function parse_button_shortcode($content) {
     };
     return preg_replace_callback($pattern, $callback, $content);
 }
-
+// 友情链接列表
 function parse_list_shortcode($content) {
     $pattern = '/\[list link="(.+?)" img="(.+?)" title="(.+?)"\](.+?)\[\/list\]/';
     $callback = function ($matches) {
@@ -61,12 +62,11 @@ function parse_list_shortcode($content) {
 }
 
 function add_shortcode_support($content) {
+    $content = htmlspecialchars_decode($content); // 先解码HTML实体
     $content = parse_button_shortcode($content);
     $content = parse_list_shortcode($content);
     return $content;
 }
-
 // 为文章内容和摘要添加过滤器
 Typecho_Plugin::factory('Widget_Abstract_Contents')->contentEx = 'add_shortcode_support';
 Typecho_Plugin::factory('Widget_Abstract_Contents')->excerptEx = 'add_shortcode_support';
-

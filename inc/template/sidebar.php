@@ -7,7 +7,7 @@
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; 
 ?>
-<div class="mdui-drawer mdui-color-24" id="drawer">
+<div class="mdui-drawer mdui-color-24 mdui-drawer-close" id="drawer">
     <ul class="mdui-list">
         <a href="<?php $this->options->siteUrl(); ?>" mdui-tooltip="{content: '网站首页', position: 'bottom'}">
             <li class="mdui-list-item mdui-ripple">

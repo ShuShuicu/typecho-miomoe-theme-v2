@@ -21,15 +21,15 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         'author'   => _t('「%s」发布的文章') 
 	), '', ' - '); ?><?php if ($this->_currentPage > 1) echo '「第' . $this->_currentPage . '页」 - '; ?><?php $this->options->title(); ?><?php if ($this->is('index') && !empty($this->options->subTitle)): ?> - <?php $this->options->subTitle(); ?><?php endif; ?></title>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/miomoe-v2.css'); ?>?v=<?php echo get_ver(); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/mdui.min.css'); ?>?v=<?php echo get_ver(); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/mdx-icons.css'); ?>?v=<?php echo get_ver(); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('assets/css/sweetalert2.min.css'); ?>?v=<?php echo get_ver(); ?>">
+    <link rel="stylesheet" href="<?php echo get_assetUrl('assets/css/mdui.min.css'); ?>?v=<?php echo get_ver(); ?>">
+    <link rel="stylesheet" href="<?php echo get_assetUrl('assets/css/mdx-icons.css'); ?>?v=<?php echo get_ver(); ?>">
+    <link rel="stylesheet" href="<?php echo get_assetUrl('assets/css/sweetalert2.min.css'); ?>?v=<?php echo get_ver(); ?>">
     <link href="<?php echo $this->options->faviconUrl ? $this->options->faviconUrl : $this->options->themeUrl . '/assets/images/favicon.ico'; ?>" rel="icon" />
     <?php $this->header(); ?>
     <?php $this->options->headerstyleCode(); ?>
 </head>
 
-<body class="mdui-appbar-with-toolbar mdui-theme-auto mdui-theme-layout-auto mdui-theme-primary-<?php echo $this->options->themePrimary ? $this->options->themePrimary : $this->options->themePrimary . 'blue-grey'; ?> mdui-theme-accent-<?php echo $this->options->accentPrimary ? $this->options->accentPrimary : $this->options->accentPrimary . 'indigo'; ?> mdui-loaded mdui-drawer-body-left">
+<body class="mdui-appbar-with-toolbar mdui-theme-auto mdui-theme-layout-auto mdui-theme-primary-<?php echo $this->options->themePrimary ? $this->options->themePrimary : $this->options->themePrimary . 'blue-grey'; ?> mdui-theme-accent-<?php echo $this->options->accentPrimary ? $this->options->accentPrimary : $this->options->accentPrimary . 'indigo'; ?> mdui-loaded">
     <div class="app">
         <header class="appbar mdui-appbar mdui-appbar-fixed">
             <div class="mdui-toolbar mdui-color-theme">

@@ -40,9 +40,9 @@ $loadPagination = !($this->is('post') || $this->is('page') || $this->is('single'
 </div>
 </div>
 </div>
-<script src="<?php $this->options->themeUrl('assets/js/miomoe-v2.js'); ?>?v=<?php echo get_ver(); ?>"></script>
-<script src="<?php $this->options->themeUrl('assets/js/mdui.min.js'); ?>?v=<?php echo get_ver(); ?>"></script>
-<script src="<?php $this->options->themeUrl('assets/js/sweetalert2.all.min.js'); ?>?v=<?php echo get_ver(); ?>"></script>
+<script src="<?php echo get_assetUrl('assets/js/miomoe-v2.js'); ?>?v=<?php echo get_ver(); ?>"></script>
+<script src="<?php echo get_assetUrl('assets/js/mdui.min.js'); ?>?v=<?php echo get_ver(); ?>"></script>
+<script src="<?php echo get_assetUrl('assets/js/sweetalert2.all.min.js'); ?>?v=<?php echo get_ver(); ?>"></script>
 <?php $this->footer(); ?>
 <?php $this->options->footerstyleCode(); ?>
 </body>
