@@ -65,6 +65,8 @@ setTimeout(function() {
         array(        
             'default' => _t('默认风格'), 
             'card'=> _t('卡片风格'), 
+            'list'=> _t('列表风格'), 
+            'list-pictures'=> _t('列表(图)风格'), 
         ),  
         'default',          
         _t('首页风格'),   

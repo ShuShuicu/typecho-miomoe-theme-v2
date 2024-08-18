@@ -40,16 +40,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                             </div>       
                             <div class="mdui-card-content comment_body">
                                 <?php $comments->content(); ?> 
-                            <div class="mdui-ripple mdui-float-right">
-                                <?php $comments->reply('<button type="submit" class="mdui-btn mdui-btn-raised mdui-ripple submit">回复评论</button>'); ?>
-                            </div>
                             </div>
                         </div>
                         <div class="mdui-divider"></div>
                         <?php endwhile; ?>
 
                     <div class="mdui-panel-item-actions">
-                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" mdui-panel-item-close>关闭</button>
+                        <button class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" mdui-panel-item-close>收起</button>
                     </div>
                 </div>
             </div>

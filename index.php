@@ -5,7 +5,7 @@
  * <div class="FansSet"><a href="https://blog.miomoe.cn/docs/MioMoe-doc.html" target="_blank">主题文档</a>&nbsp;</div><style>.FansSet{margin-top: 5px;}.FansSet a{background: #ff4d4d;padding: 5px;color: #fff;}</style>
  * @package MioMoeV2
  * @author 鼠子(ShuShuicu)
- * @version beta1.9
+ * @version beta2.0
  * @link https://blog.miomoe.cn/
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; 

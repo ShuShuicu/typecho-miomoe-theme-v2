@@ -220,6 +220,10 @@ function get_assetUrl($path) {
         return $cdnUrl . $path;
     }
 }
+// get_Header_top_info
+function get_Header_top_info() {
+    echo '<h1>最新文章<small> · 精彩近在咫尺！</small></h1>';
+}
 /**
  * // 后台说明
  * function get_adminInfo() {

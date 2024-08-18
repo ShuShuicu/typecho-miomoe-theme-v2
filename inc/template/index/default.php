@@ -5,22 +5,9 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; 
 ?>
 <div class="mdui-typo mdui-center">
-<h1>
-<?php 
-    if (empty($this->getArchiveTitle())) {
-        echo _t('最新文章');
-    } else {
-        $this->archiveTitle(array(
-            'category' => _t('%s'),
-            'search'   => _t('%s'),
-            'tag'      => _t('%s'),
-            'author'   => _t('%s')
-        ), '', '');
-    }
-?>
-    <small> · 精彩近在咫尺！</small></h1>
+<?php get_Header_top_info(); ?>
     <?php while($this->next()): ?>
-    <div class="mdui-col-xl-4 mdui-col-lg-4 mdui-col-md-6 mdui-col-sm-6 mdui-m-y-1">
+    <div class="mdui-col-xl-4 mdui-col-lg-4 mdui-col-md-6 mdui-col-sm-6 mdui-m-y-2">
         <div class="mdui-card mdui-hoverable" style="border-radius: 8px;">
             <div class="mdui-card-media">
                 <?php  
