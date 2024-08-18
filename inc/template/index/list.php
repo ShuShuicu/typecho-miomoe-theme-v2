@@ -6,21 +6,17 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 ?>
 <div class="mdui-typo mdui-center">
 <?php get_Header_top_info(); ?>
-<?php
-$count = 0;
-while($this->next()): 
-    if ($count % 2 == 0) { // 开始一个新的行
-        if ($count > 0) {
-            echo '</div>'; // 关闭上一个行
-        }
-        echo '<div class="mdui-col-xs-12">'; // 开始一个新的行
-    }
-?>
-<div class="mdui-col-xl-6 mdui-col-lg-6 mdui-col-md-6 mdui-col-sm-12 mdui-m-y-2">
-    <div class="mdui-card mdui-hoverable" style="border-radius: 8px;">
+<?php while($this->next()): ?>
+<div class="mdui-col-xs-12">
+    <div class="mdui-m-y-1 mdui-card mdui-hoverable" style="border-radius: 8px;">
         <div class="mdui-card-content">
             <div class="mdui-card-primary-title mdui-text-truncate">
                 <a href="<?php $this->permalink() ?>" mdui-tooltip="{content: '阅读本文'}"><?php $this->title() ?></a>
+            </div>
+            <div class="mdui-card-primary-subtitle mdui-text-truncate">
+                时间：<?php $this->date(); ?>
+                · 分类：<?php $this->category(',', true, '暂无分类'); ?>
+                · 标签： <?php $this->tags(',', true, '暂无标签'); ?>
             </div>
         </div>
         <div class="mdui-divider"></div>
@@ -29,12 +25,5 @@ while($this->next()):
             </div>
     </div>
 </div>
-<?php 
-$count++;
-endwhile; 
-if ($count > 0) {
-    echo '</div>'; 
-}
-?>
-
+<?php endwhile; ?>
 </div>

@@ -7,33 +7,39 @@
  */
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; 
 ?>
-<div class="mdui-m-y-2">
-    <div class="mdui-card mdui-typo mdui-card-content mdui-hoverable" style="border-radius: 8px;padding-left:4%;padding-right:4%;">
-        <h1>站内搜索</h1>
-        <div class="mdui-textfield">
-            <form method="post">
-                <label class="mdui-textfield-label">输入内容回车搜索</label>
-                <input class="mdui-textfield-input" type="text" name="s" class="text" placeholder="开启精彩搜索" value="<?php echo $this->_keywords ?>" />
-            </form>
-        </div>
-    </div>
-</div>
-<?php while($this->next()): ?>
-<div class="mdui-m-y-4 mdui-typo mdui-card mdui-hoverable" style="border-radius: 8px;">
-    <div class="mdui-card-primary">
+<div class="mdui-m-y-2 mdui-typo mdui-card mdui-card-content mdui-hoverable" style="border-radius: 8px;">
+    <div class="mdui-card-media mdui-card-content">
         <div class="mdui-card-primary-title mdui-text-truncate">
-            <a href="<?php $this->permalink() ?>" mdui-tooltip="{content: '查看文章'}"><?php $this->title() ?></a>
+            <?php $this->archiveTitle([
+                'search'   => _t('包含关键字 %s 的文章'),
+            ], '',); ?>
         </div>
-        <div class="mdui-card-primary-subtitle">
-            时间：<?php $this->date(); ?>
-            · 分类：<?php $this->category(',', true, '暂无分类'); ?>
-            · 标签： <?php $this->tags(',', true, '暂无标签'); ?>
-        </div>
+        <div class="mdui-divider"></div>
     </div>
-    <div class="mdui-divider"></div>
-    <div class="mdui-card-content">
-        <?php $this->excerpt(180, '......'); ?>
+    <div class="mdui-card-actions mdui-textfield">
+        <form method="post">
+            <i class="mdui-icon material-icons">search</i>
+            <input class="mdui-textfield-input" type="text" name="s" class="text" placeholder="输入关键词按Enter(回车)搜索" value="<?php echo $this->_keywords ?>" />
+        </form>
     </div>
 </div>
+
+<div class="mdui-card mdui-card-content mdui-hoverable" style="border-radius: 8px;">
+
+<?php while($this->next()): ?>
+<ul class="mdui-list">
+    <a target="_blank" href="<?php $this->permalink() ?>" mdui-tooltip="{content: '阅读本文'}">
+        <li class="mdui-list-item mdui-ripple">
+            <div class="mdui-list-item-content">
+                <div class="mdui-list-item-title"><?php $this->title() ?></div>
+                <div class="mdui-list-item-text mdui-list-item-one-line">
+                    <span class="mdui-text-color-theme-text"><?php $this->excerpt(); ?></span>
+                </div>
+            </div>
+        </li>
+    </a>
+</ul>
+<div class="mdui-divider"></div>
 <?php endwhile; ?>
+
 </div>

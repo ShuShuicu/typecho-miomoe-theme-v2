@@ -25,7 +25,9 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             </div>
 
             <div class="mdui-card-primary-subtitle mdui-text-truncate">
-                <?php $this->date("20y-m-d"); ?> · <?php $this->category(',', false, '暂无分类'); ?> · <?php $this->tags(',', false, '暂无标签'); ?>
+                时间：<?php $this->date(); ?>
+                · 分类：<?php $this->category(',', true, '暂无分类'); ?>
+                · 标签： <?php $this->tags(',', true, '暂无标签'); ?>
             </div>
             <div class="mdui-divider"></div>
             <div class="mdui-card-primary-subtitle mdui-card-content">
