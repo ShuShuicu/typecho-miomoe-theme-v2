@@ -173,6 +173,41 @@ function themeFields($layout)
     );
     $layout->addItem($thumbnailStyle);
 
+    // 文章背景音乐字段
+    // 选择背景音乐是否开启
+    $backgroundMusicStyle = new Typecho_Widget_Helper_Form_Element_Select(
+        'backgroundMusicStyle', array(
+        'close' => '关闭背景音乐',
+        'open' => '开启背景音乐'
+    ), 'close',
+        '背景音乐',
+        '')
+    ;
+    $layout->addItem($backgroundMusicStyle);
+    // 选择背景音乐是否自动播放
+    $backgroundMusicPlay = new Typecho_Widget_Helper_Form_Element_Select(
+        'backgroundMusicPlay', array(
+        '0' => '手动播放音乐',
+        '1' => '自动播放音乐'
+    ), 'close',
+        '播放音乐',
+        '部分浏览器可能无法自动播放')
+    ;
+    $layout->addItem($backgroundMusicPlay);
+    // 音乐ID
+    $backgroundMusicID = new Typecho_Widget_Helper_Form_Element_Text(
+        'backgroundMusicID', 
+        NULL, 
+        NULL,  
+        _t
+        ('背景音乐ID'), 
+        _t('请输入网易云音乐ID<br>开启音乐插入后会使用网易云官方的iframe插入接口。')
+    );
+    $backgroundMusicID->input->setAttribute(
+        'style', 'width: 100%; max-width: 600px;'
+    );
+    $layout->addItem($backgroundMusicID);
+
 }
 Typecho_Plugin::factory('admin/write-post.php')->bottom = 'themeFields';
 Typecho_Plugin::factory('admin/write-page.php')->bottom = 'themeFields';

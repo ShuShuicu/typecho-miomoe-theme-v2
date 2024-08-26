@@ -9,6 +9,7 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit; 
 $this->need('inc/template/header.php'); 
 $this->need("inc/template/posts/" . ($this->options->postStyle) . ".php"); 
+$this->need('inc/functions/musics.php'); 
 $this->need('inc/template/comments.php'); 
 $this->need('inc/template/footer.php');
 ?>

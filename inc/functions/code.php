@@ -13,7 +13,7 @@ function add_custom_message_to_write_page() {
                 var optionTabs = document.querySelector(".typecho-option-tabs");
                 if (optionTabs) {
                     var customMessage = document.createElement("p");
-                    customMessage.textContent = "短代码使用：https://blog.miomoe.cn/docs/MioMoe-doc.html";
+                    customMessage.textContent = "文章短代码使用文档：https://blog.miomoe.cn/docs/MioMoe-doc.html";
                     optionTabs.parentNode.insertBefore(customMessage, optionTabs.nextSibling);
                 }
             }
@@ -22,6 +22,7 @@ function add_custom_message_to_write_page() {
 }
 // 挂载到 admin/footer.php 底部
 Typecho_Plugin::factory('admin/footer.php')->end = 'add_custom_message_to_write_page';
+
 
 // 短代码解析函数
 // 按钮
