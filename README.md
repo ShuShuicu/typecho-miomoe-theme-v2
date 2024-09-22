@@ -1,3 +1,6 @@
+# MioV3重构版已发布！
+[https://gitee.com/ShuShuicu/typecho-miomoe-theme-v3](https://gitee.com/ShuShuicu/typecho-miomoe-theme-v3)
+
 ## 介绍
 MioMoeV2重构版 · 基于MDUI的轻量化Typecho博客主题
 
